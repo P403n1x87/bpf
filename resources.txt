@@ -1,0 +1,13 @@
+# Docs
+https://nakryiko.com/posts/libbpf-bootstrap/
+https://qmonnet.github.io/whirl-offload/2016/09/01/dive-into-bpf/
+https://blogs.igalia.com/dpino/2019/01/07/introduction-to-xdp-and-ebpf/
+https://docs.cilium.io/en/latest/bpf/
+https://lwn.net/Articles/740157/
+https://pingcap.com/blog/tips-and-tricks-for-writing-linux-bpf-applications-with-libbpf
+https://facebookmicrosites.github.io/bpf/blog/2020/02/20/bcc-to-libbpf-howto-guide.html
+
+# Source
+https://github.com/iovisor/bcc/blob/b768015a594e6a715a6d016682ac4ee4873d2bdc/src/cc/frontends/clang/loader.cc
+https://github.com/iovisor/bcc/blob/e83019bdf6c400b589e69c7d18092e38088f89a8/src/python/bcc/__init__.py#L144
+https://github.com/iovisor/bcc/blob/master/libbpf-tools/offcputime.bpf.c
