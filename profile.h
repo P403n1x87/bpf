@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: GPL-2.0
+// Copyright (c) 2021 Gabriele N. Tornetta
+
 #ifndef __PROFILE_H
 #define __PROFILE_H
 
@@ -5,6 +8,17 @@
 
 typedef __u32 u32;
 typedef __u64 u64;
+
+#ifdef PERF_MAX_STACK_DEPTH
+#define BPF_MAX_STACK_DEPTH PERF_MAX_STACK_DEPTH
+#else
+#define BPF_MAX_STACK_DEPTH 127
+#endif
+
+struct bpf_stacktrace
+{
+    u64 ip[BPF_MAX_STACK_DEPTH];
+};
 
 struct key_t
 {
