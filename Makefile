@@ -3,14 +3,15 @@
 OUTPUT := build
 CLANG ?= clang
 LLVM_STRIP ?= llvm-strip
-BPFTOOL ?= bpftool
+BPFTOOL ?= /usr/sbin/bpftool
 INCLUDES := -I$(OUTPUT)
 CFLAGS := -g -Wall
 OPTS := 
 ARCH := $(shell uname -m | sed 's/x86_64/x86/' | sed 's/aarch64/arm64/' | sed 's/ppc64le/powerpc/' | sed 's/mips.*/mips/')
 
 APPS = \
-	profile
+	profile \
+	copy_from_user_remote
 
 $(OUTPUT):
 	mkdir -p $@

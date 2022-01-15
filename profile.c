@@ -12,20 +12,12 @@
 #include <bpf/libbpf.h>
 #include <bpf/bpf.h>
 #include <linux/perf_event.h>
+
+#include "logging.h"
 #include "profile.skel.h"
 #include "profile.h"
 
 #define MAX_CPU_NR 128
-
-// ----------------------------------------------------------------------------
-static int libbpf_print_fn(enum libbpf_print_level level, const char *format, va_list args)
-{
-#ifdef DEBUG
-    return vfprintf(stderr, format, args);
-#else
-    return 0;
-#endif
-}
 
 // ----------------------------------------------------------------------------
 static void bump_memlock_rlimit(void)
@@ -319,8 +311,7 @@ int main(int argc, char **argv)
         return 1;
     }
 
-    /* Set up libbpf errors and debug info callback */
-    libbpf_set_print(libbpf_print_fn);
+    libbpf_enable_debug_logging();
 
     /* Bump RLIMIT_MEMLOCK to allow BPF sub-system to do anything */
     bump_memlock_rlimit();
